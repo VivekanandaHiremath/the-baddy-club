@@ -109,6 +109,15 @@ the-baddy-club/
 
 ---
 
+## Deployment
+
+The recommended production setup is **MongoDB Atlas** (managed database) + **Vercel**
+(managed app host) — no Docker required in production; you just point `MONGO_URL` at the
+managed database. See **[DEPLOYMENT.md](DEPLOYMENT.md)** for the step-by-step guide and
+alternatives (Docker Compose on a VPS, container hosts, bare Node).
+
+---
+
 ## API reference
 
 All routes are served by the catch-all handler at `app/api/[[...path]]/route.js`.

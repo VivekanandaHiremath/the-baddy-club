@@ -120,9 +120,9 @@ function Header({ user, onLogin, onLogout, onNav, onPortal }) {
         <button onClick={() => onNav('top')} className="flex items-center gap-2.5 group">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-glow transition-transform group-hover:scale-105"
             style={{ background: 'linear-gradient(135deg, #F472B6, #DB2777)' }}>
-            <span className="font-black text-xl text-white" style={{ fontFamily: 'var(--font-space)' }}>B</span>
+            <span className="font-black text-xl text-white" style={{ fontFamily: 'var(--font-inter)' }}>B</span>
           </div>
-          <span className="font-black text-lg md:text-xl tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>
+          <span className="font-black text-lg md:text-xl tracking-tight" style={{ fontFamily: 'var(--font-inter)' }}>
             THE BADDY CLUB<span style={{ color: PINK }}>.</span>
           </span>
         </button>
@@ -185,7 +185,7 @@ function Hero({ onBook, onAbout }) {
           <Pill>
             <Sparkles className="w-3.5 h-3.5" /> Weekend Social Badminton · Bengaluru
           </Pill>
-          <h1 className="mt-6 font-black text-6xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter" style={{ fontFamily: 'var(--font-space)' }}>
+          <h1 className="mt-6 font-black text-6xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter" style={{ fontFamily: 'var(--font-inter)' }}>
             We Jump<br />
             <span className="text-gradient">& Smash.</span>
           </h1>
@@ -222,14 +222,14 @@ function Hero({ onBook, onAbout }) {
             </div>
             <div className="absolute -bottom-5 -left-4 md:-left-6 glass-card rounded-2xl shadow-soft-lg border border-border p-4 w-52 animate-float">
               <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Next Session</div>
-              <div className="font-black text-xl leading-tight mt-0.5" style={{ fontFamily: 'var(--font-space)' }}>SUN 9:45 AM</div>
+              <div className="font-black text-xl leading-tight mt-0.5" style={{ fontFamily: 'var(--font-inter)' }}>SUN 9:45 AM</div>
               <div className="text-xs font-bold mt-1.5 flex items-center gap-1" style={{ color: PINK }}>
                 <Zap className="w-3.5 h-3.5 fill-[#E65C9C]" /> Only 4 slots left
               </div>
             </div>
             <div className="absolute -top-3 -right-3 md:-right-5 glass-card rounded-xl shadow-soft border border-border px-4 py-3 animate-float" style={{ animationDelay: '1.5s' }}>
               <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: PINK }}>Hydration Partner</div>
-              <div className="font-black text-sm" style={{ fontFamily: 'var(--font-space)' }}>HYDRASALT</div>
+              <div className="font-black text-sm" style={{ fontFamily: 'var(--font-inter)' }}>HYDRASALT</div>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ function Stats() {
               <s.icon className="w-6 h-6" style={{ color: PINK }} />
             </div>
             <div>
-              <div className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>{s.value}</div>
+              <div className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-inter)' }}>{s.value}</div>
               <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{s.label}</div>
             </div>
           </div>
@@ -271,7 +271,7 @@ function SectionHead({ pill, title, accent, copy, center }) {
     <div className={`mb-12 ${center ? 'text-center max-w-2xl mx-auto' : 'flex flex-col md:flex-row md:items-end justify-between gap-5'}`}>
       <div>
         <Pill>{pill}</Pill>
-        <h2 className="mt-4 font-black text-4xl md:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-space)' }}>
+        <h2 className="mt-4 font-black text-4xl md:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-inter)' }}>
           {title} {accent && <span className="text-gradient">{accent}</span>}
         </h2>
       </div>
@@ -307,7 +307,7 @@ function SessionCard({ s, onBook, img }) {
         )}
         {soldOut && (
           <div className="absolute inset-0 bg-black/55 backdrop-blur-[2px] flex items-center justify-center">
-            <div className="font-black text-2xl text-white tracking-widest border-2 border-white rounded-xl px-6 py-2" style={{ fontFamily: 'var(--font-space)' }}>
+            <div className="font-black text-2xl text-white tracking-widest border-2 border-white rounded-xl px-6 py-2" style={{ fontFamily: 'var(--font-inter)' }}>
               SOLD OUT
             </div>
           </div>
@@ -315,7 +315,7 @@ function SessionCard({ s, onBook, img }) {
       </div>
       <div className="p-5 flex-1 flex flex-col">
         <div className="text-xs font-bold uppercase tracking-wider" style={{ color: PINK }}>{s.tagline}</div>
-        <h3 className="font-black text-2xl tracking-tight mt-1 leading-tight" style={{ fontFamily: 'var(--font-space)' }}>{s.title}</h3>
+        <h3 className="font-black text-2xl tracking-tight mt-1 leading-tight" style={{ fontFamily: 'var(--font-inter)' }}>{s.title}</h3>
         <div className="mt-4 space-y-2.5 text-sm">
           <div className="flex items-center gap-2.5"><MapPin className="w-4 h-4" style={{ color: PINK }} /> <span className="text-muted-foreground">{s.location_name}</span></div>
           <div className="flex items-center gap-2.5"><Calendar className="w-4 h-4" style={{ color: PINK }} /> <span className="text-muted-foreground">{formatDate(s.date_time)}</span></div>
@@ -332,7 +332,7 @@ function SessionCard({ s, onBook, img }) {
         <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
           <div>
             <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Per Session</div>
-            <div className="font-black text-2xl" style={{ fontFamily: 'var(--font-space)' }}>₹{s.price}</div>
+            <div className="font-black text-2xl" style={{ fontFamily: 'var(--font-inter)' }}>₹{s.price}</div>
           </div>
           <PinkButton onClick={() => onBook(s)} disabled={soldOut} className="text-sm px-5 py-2.5">
             {soldOut ? 'Sold Out' : <>Book Slot <ChevronRight className="w-4 h-4" /></>}
@@ -393,7 +393,7 @@ function AboutSection() {
         </div>
         <div className="order-1 lg:order-2">
           <Pill>The Club</Pill>
-          <h2 className="mt-4 font-black text-4xl md:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-space)' }}>
+          <h2 className="mt-4 font-black text-4xl md:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-inter)' }}>
             Weekends belong<br />on the <span className="text-gradient">court.</span>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-md">
@@ -405,7 +405,7 @@ function AboutSection() {
                 <div className="w-10 h-10 rounded-xl bg-[#E65C9C]/10 border border-[#E65C9C]/20 flex items-center justify-center">
                   <f.icon className="w-5 h-5" style={{ color: PINK }} />
                 </div>
-                <div className="font-black text-lg mt-3" style={{ fontFamily: 'var(--font-space)' }}>{f.title}</div>
+                <div className="font-black text-lg mt-3" style={{ fontFamily: 'var(--font-inter)' }}>{f.title}</div>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{f.text}</p>
               </div>
             ))}
@@ -515,7 +515,7 @@ function FAQContact() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-14">
         <div>
           <Pill>FAQ</Pill>
-          <h2 className="mt-4 font-black text-4xl md:text-5xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-space)' }}>
+          <h2 className="mt-4 font-black text-4xl md:text-5xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-inter)' }}>
             Questions,<br /><span className="text-gradient">answered.</span>
           </h2>
           <Accordion type="single" collapsible className="mt-8 space-y-3">
@@ -529,7 +529,7 @@ function FAQContact() {
         </div>
         <div>
           <Pill>Contact</Pill>
-          <h2 className="mt-4 font-black text-4xl md:text-5xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-space)' }}>
+          <h2 className="mt-4 font-black text-4xl md:text-5xl tracking-tighter leading-[0.95]" style={{ fontFamily: 'var(--font-inter)' }}>
             Say <span className="text-gradient">hello.</span>
           </h2>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -571,9 +571,9 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F472B6, #DB2777)' }}>
-              <span className="font-black text-white" style={{ fontFamily: 'var(--font-space)' }}>B</span>
+              <span className="font-black text-white" style={{ fontFamily: 'var(--font-inter)' }}>B</span>
             </div>
-            <div className="font-black text-xl" style={{ fontFamily: 'var(--font-space)' }}>
+            <div className="font-black text-xl" style={{ fontFamily: 'var(--font-inter)' }}>
               THE BADDY CLUB<span style={{ color: PINK }}>.</span>
             </div>
           </div>
@@ -613,7 +613,7 @@ function AuthDialog({ open, onClose, onSuccess }) {
       <DialogContent className="max-w-md rounded-2xl border border-border shadow-soft-lg p-0 overflow-hidden">
         <div className="p-6">
           <DialogHeader>
-            <DialogTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>
+            <DialogTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-inter)' }}>
               Join the <span className="text-gradient">Club.</span>
             </DialogTitle>
             <DialogDescription>One-tap sign in. We just need your email to lock your slots.</DialogDescription>
@@ -698,7 +698,7 @@ function BookingDrawer({ session, open, onClose, user, onLogin, onPaid }) {
       <DrawerContent className="border-t border-border">
         <div className="max-w-2xl mx-auto w-full px-5 pb-8">
           <DrawerHeader className="px-0">
-            <DrawerTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>
+            <DrawerTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-inter)' }}>
               {stage === 'success' ? <>Slot <span className="text-gradient">Locked.</span></> : <>Confirm <span className="text-gradient">Booking.</span></>}
             </DrawerTitle>
             <DrawerDescription>
@@ -709,7 +709,7 @@ function BookingDrawer({ session, open, onClose, user, onLogin, onPaid }) {
           {stage !== 'success' && (
             <div className="bg-card rounded-2xl border border-border shadow-soft p-5 mt-2">
               <div className="text-xs font-bold uppercase tracking-wider" style={{ color: PINK }}>{session.tagline}</div>
-              <h3 className="font-black text-2xl mt-1" style={{ fontFamily: 'var(--font-space)' }}>{session.title}</h3>
+              <h3 className="font-black text-2xl mt-1" style={{ fontFamily: 'var(--font-inter)' }}>{session.title}</h3>
               <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
                 <div className="flex items-center gap-2"><Calendar className="w-4 h-4" style={{ color: PINK }} /><b>{formatDateLong(session.date_time)}</b></div>
                 <div className="flex items-center gap-2"><Clock className="w-4 h-4" style={{ color: PINK }} /><b>{formatTime(session.date_time)}</b></div>
@@ -718,7 +718,7 @@ function BookingDrawer({ session, open, onClose, user, onLogin, onPaid }) {
               <div className="border-t border-border mt-5 pt-5 flex items-end justify-between">
                 <div>
                   <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Total</div>
-                  <div className="font-black text-3xl" style={{ fontFamily: 'var(--font-space)' }}>₹{session.price}</div>
+                  <div className="font-black text-3xl" style={{ fontFamily: 'var(--font-inter)' }}>₹{session.price}</div>
                 </div>
                 <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">via Razorpay (Mock)</div>
               </div>
@@ -783,14 +783,14 @@ function PortalDialog({ open, onClose, user }) {
           <DialogHeader>
             <div className="flex items-start justify-between gap-4">
               <div>
-                <DialogTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>
+                <DialogTitle className="font-black text-3xl tracking-tight" style={{ fontFamily: 'var(--font-inter)' }}>
                   Player <span className="text-gradient">Portal.</span>
                 </DialogTitle>
                 <DialogDescription className="mt-1">{user?.full_name} · {user?.email}</DialogDescription>
               </div>
               <div className="rounded-2xl border border-[#E65C9C]/20 bg-[#E65C9C]/5 p-3.5 text-center min-w-[120px]">
                 <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: PINK }}>Punch Card</div>
-                <div className="font-black text-2xl" style={{ fontFamily: 'var(--font-space)' }}>{user?.punch_card_remaining ?? 0}</div>
+                <div className="font-black text-2xl" style={{ fontFamily: 'var(--font-inter)' }}>{user?.punch_card_remaining ?? 0}</div>
                 <div className="text-[9px] uppercase tracking-wider text-muted-foreground">sessions left</div>
               </div>
             </div>
@@ -815,7 +815,7 @@ function PortalDialog({ open, onClose, user }) {
                     <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#E65C9C]/10 text-[#C13C7E]">
                       <CheckCircle2 className="w-3 h-3" /> Confirmed
                     </div>
-                    <h4 className="font-black text-xl mt-2" style={{ fontFamily: 'var(--font-space)' }}>{b.session.title}</h4>
+                    <h4 className="font-black text-xl mt-2" style={{ fontFamily: 'var(--font-inter)' }}>{b.session.title}</h4>
                     <div className="mt-3 text-sm space-y-1.5">
                       <div className="flex items-center gap-2"><Calendar className="w-4 h-4" style={{ color: PINK }} /> <b>{formatDateLong(b.session.date_time)} · {formatTime(b.session.date_time)}</b></div>
                       <div className="flex items-center gap-2"><MapPin className="w-4 h-4" style={{ color: PINK }} /> <span className="text-muted-foreground">{b.session.location_name}</span></div>
@@ -845,7 +845,7 @@ function PortalDialog({ open, onClose, user }) {
               {history.map(b => (
                 <div key={b.id} className="bg-card rounded-2xl border border-border shadow-soft p-4 flex items-center justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <div className="font-black truncate" style={{ fontFamily: 'var(--font-space)' }}>{b.session?.title || 'Session'}</div>
+                    <div className="font-black truncate" style={{ fontFamily: 'var(--font-inter)' }}>{b.session?.title || 'Session'}</div>
                     <div className="text-xs text-muted-foreground">{b.session && formatDateLong(b.session.date_time)} · ₹{b.amount}</div>
                     <Badge variant="outline" className="mt-1.5 text-[10px] rounded-full uppercase font-bold">{b.payment_status}</Badge>
                   </div>

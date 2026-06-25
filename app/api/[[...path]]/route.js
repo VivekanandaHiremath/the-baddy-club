@@ -164,20 +164,20 @@ export async function GET(request, { params }) {
       const user = await db.collection('profiles').findOne({ id: booking.user_id })
       const dt = new Date(session.date_time)
       const html = `<!doctype html><html><head><meta charset="utf-8"/><title>Receipt ${booking.id}</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#FCFAF6;color:#18161A;margin:0;padding:48px 24px;}
 .card{max-width:640px;margin:auto;background:#fff;border:1px solid #efe7df;border-radius:24px;box-shadow:0 30px 70px -18px rgba(24,22,30,0.22),0 10px 28px -12px rgba(24,22,30,0.12);padding:40px;overflow:hidden;}
 .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
-.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;display:flex;align-items:center;gap:10px;}
-.logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#F472B6,#DB2777);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;}
+.brand{font-family:'Inter',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;display:flex;align-items:center;gap:10px;}
+.logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#F472B6,#DB2777);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:20px;}
 .pink{color:#E65C9C;}
 .badge{display:inline-block;background:rgba(230,92,156,0.1);color:#C13C7E;padding:6px 14px;border-radius:999px;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;}
 .row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #f0eae3;font-size:15px;}
 .row span{color:#7a7480;}
-h1{font-family:'Space Grotesk',sans-serif;font-size:38px;margin:16px 0 4px;letter-spacing:-0.04em;}
-.total{font-size:30px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#F472B6,#DB2777);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+h1{font-family:'Inter',sans-serif;font-size:38px;margin:16px 0 4px;letter-spacing:-0.04em;}
+.total{font-size:30px;font-weight:800;font-family:'Inter',sans-serif;background:linear-gradient(135deg,#F472B6,#DB2777);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .btn{display:inline-block;margin-top:28px;background:linear-gradient(135deg,#F472B6,#DB2777);color:#fff;border:none;border-radius:999px;padding:13px 28px;font-weight:600;text-decoration:none;box-shadow:0 14px 36px -10px rgba(230,92,156,0.5);}
 @media print { .btn{display:none;} body{background:#fff;padding:0;} .card{box-shadow:none;border:1px solid #e5e5e5;} }
 </style></head><body>
