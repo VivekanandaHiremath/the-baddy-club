@@ -11,6 +11,8 @@ public page reflects) and shows an **analytics** view with charts.
 The UI is a **light-luxe** design — warm off-white canvas, soft elevated glass cards,
 gradients, and generous rounding — with pink (`#E65C9C`) as the brand accent, in **Inter**.
 
+> 📖 To run it locally see **[RUNNING.md](RUNNING.md)**. To deploy see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
+
 ---
 
 ## Tech stack
@@ -23,63 +25,22 @@ gradients, and generous rounding — with pink (`#E65C9C`) as the brand accent, 
 
 ---
 
-## Prerequisites
+## What it contains
 
-- **Node.js** 18.18+ (or 20+)
-- **MongoDB** at `mongodb://localhost:27017` — local install or Docker (below)
+**Public site**
+- Config-driven landing page: hero, stats strip, about, gallery, venues, testimonials, FAQ, and contact form.
+- **Events** section where each event shows its own admin-set **poster**.
+- **Apply** to an event ("Request a Spot") with passwordless sign-in.
+- **Player portal** — track applications, pay via a shared link, and view confirmed sessions with **QR tickets** + printable receipts.
+- Public **payment page** (`/pay/<token>`) for a shortlisted registration.
 
----
-
-## Getting started
-
-### 1. Install dependencies
-```bash
-npm install
-```
-
-### 2. Start MongoDB
-```bash
-docker run -d --name baddy-mongo -p 27017:27017 mongo:7
-```
-Restart it later with `docker start baddy-mongo`.
-
-### 3. Configure environment
-A `.env` is included for local development (see `.env.example` for all keys):
-```env
-MONGO_URL=mongodb://localhost:27017
-DB_NAME=baddy_club
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-CORS_ORIGINS=*
-ADMIN_EMAILS=admin@baddy.com      # comma-separated emails granted /admin access
-```
-
-### 4. Run the dev server
-```bash
-npm run dev
-```
-Open **http://localhost:3000**. The database **auto-seeds** site config, two venues, and three
-sample events on the first API request — no manual seeding needed.
-
-### 5. Become an admin
-Sign in (top-right) with an email listed in `ADMIN_EMAILS` (default `admin@baddy.com`). An
-**Admin** link appears in the header → opens the dashboard at **/admin**. Auth is passwordless;
-any email signs in as a player, and matching the allowlist unlocks admin powers.
-
-### 6. Build for production
-```bash
-npm run build
-npm run start
-```
-
----
-
-## Scripts
-
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Dev server on port 3000 (cross-platform via `cross-env`) |
-| `npm run build` | Production build |
-| `npm run start` | Serve the production build |
+**Admin dashboard (`/admin`, email-allowlist gated)**
+- **Overview** — KPI cards (revenue, registrations, paid, pending, shortlisted, events, venues, players) plus charts: registrations & revenue over the last 14 days, application funnel, skill distribution, and per-event fill rate.
+- **Events** — create / edit / delete events (title, tagline, date, venue, slots, price, badge, poster URL).
+- **Venues** — manage courts shown in the public *Where We Play* section.
+- **Gallery** — add / remove public gallery photos (falls back to default imagery when empty).
+- **Registrations** — filter applicants (event / status / skill / search), single & bulk shortlist or reject, copy payment links, mark paid.
+- **Settings** — edit the public page content (club name, tagline, hero copy/kicker, contact, Instagram, hydration partner, stats strip).
 
 ---
 
@@ -87,8 +48,8 @@ npm run start
 
 1. **Apply** — a logged-in player taps *Request a Spot* on an event → creates a `pending`
    registration (free).
-2. **Shortlist** — an admin filters applicants (by event/status/skill/search) and shortlists a
-   balanced mix. Shortlisting generates a unique **payment token**.
+2. **Shortlist** — an admin filters applicants and shortlists a balanced mix. Shortlisting
+   generates a unique **payment token**.
 3. **Send link** — the admin copies the player's payment link (`/pay/<token>`) and shares it
    (manual copy in this version; email delivery is a later phase).
 4. **Pay** — the player opens the link and pays (mock gateway). The event slot is decremented
@@ -98,22 +59,6 @@ npm run start
 
 > The admin can also **mark paid** directly, or **reject** applications. Bulk shortlist/reject
 > is supported from the registrations table.
-
----
-
-## Admin dashboard (`/admin`)
-
-Gated by the `ADMIN_EMAILS` allowlist. Six sections:
-
-- **Overview** — KPI cards (revenue, registrations, paid, pending, shortlisted, events, venues,
-  players) plus charts: registrations & revenue over the last 14 days, application funnel, skill
-  distribution, and per-event fill rate (Recharts).
-- **Events** — create / edit / delete events (title, tagline, date, venue, slots, price, badge).
-- **Venues** — manage courts shown in the public *Where We Play* section (image via URL).
-- **Gallery** — add/remove public gallery photos (image URLs; falls back to default imagery when empty).
-- **Registrations** — filter applicants, single & bulk shortlist/reject, copy payment links, mark paid.
-- **Settings** — edit the public page content (club name, tagline, hero copy/kicker, contact,
-  Instagram, hydration partner, and the stats strip).
 
 ---
 
@@ -184,22 +129,14 @@ Auth uses an HTTP-only `baddy_session` cookie. Admin routes require the caller's
 
 ---
 
-## Deployment
-
-Recommended: **MongoDB Atlas** (managed DB) + **Vercel** (app) — no Docker in production; point
-`MONGO_URL` at the managed database and set `ADMIN_EMAILS`. See **[DEPLOYMENT.md](DEPLOYMENT.md)**
-for the step-by-step guide and alternatives (Docker Compose on a VPS, container hosts, bare Node).
-
----
-
 ## Notes
 
 - **Admin access** is an email allowlist (`ADMIN_EMAILS`) over the passwordless login — simple,
   but add a real auth mechanism before exposing sensitive data publicly.
 - **Mock payments:** the webhook simulator stands in for a Razorpay/Stripe `payment.captured`
   event; payment links are shared manually. Real gateway + email delivery are deferred.
-- **Image uploads are deferred** — events, venues, and gallery photos use hosted image **URLs**
-  for now (binary upload to Cloudinary/S3/GridFS is a later phase).
+- **Image handling:** events (posters), venues, and gallery photos use hosted image **URLs** for
+  now (binary upload to Cloudinary/S3/GridFS is a later phase).
 - **Idempotent seeding:** config, venues, and events seed via unique index + upsert, so
   concurrent first requests can't create duplicates.
 - **Images** load from Unsplash / Pexels; QR codes render via `api.qrserver.com`.
